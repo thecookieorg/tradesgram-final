@@ -1,11 +1,12 @@
 class QuestionsController < ApplicationController
   before_action :authenticate_user!
+  before_action :owned_question, only: [:edit, :update, :destroy]
   before_action :set_question, only: [:show, :edit, :update, :destroy]
 
   # GET /questions
   # GET /questions.json
   def index
-    @questions = current_user.questions
+    @questions = current_user.questions.order(created_at: :desc)
   end
 
   # GET /questions/1
@@ -29,7 +30,7 @@ class QuestionsController < ApplicationController
 
     respond_to do |format|
       if @question.save
-        format.html { redirect_to @question, notice: 'Question was successfully created.' }
+        format.html { redirect_to root_path, notice: 'Yeeeey! Great success!!!' }
         format.json { render :show, status: :created, location: @question }
       else
         format.html { render :new }
@@ -70,6 +71,13 @@ class QuestionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def question_params
-      params.require(:question).permit(:name, :body)
+      params.require(:question).permit(:name, :body, :user_id)
     end
+
+    def owned_question
+      unless current_user.id == @question.user_id
+        flash[:alert] = "That question doesn't belong to you!"
+        redirect_to root_path
+      end
+    end  
 end

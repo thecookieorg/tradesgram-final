@@ -1,14 +1,26 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+	<div class="col-md-12">
+		<h2><%= @question.name %></h2>
+		<hr>
+		<p><%= @question.body %></p>
+		<hr>
+		<% if @question.answers %>
+			<% @question.answers.each do |answer| %>
+				<p><%= answer.user.full_name %></p>
+				<p><%= answer.body %></p>
+				
+			<% end %>
+		<% end %>
+	</div><!-- end col-md-12 -->
+</div><!-- end row -->
 
-<p>
-  <strong>Name:</strong>
-  <%= @question.name %>
-</p>
+<div class="row">
+	<div class="col-md-12">
+		<%= simple_form_for [@question, @question.answers.build] do |f| %>
+		<hr>
+		  <%= f.input :body, label: "You know the answer? What are you waiting for???", placeholder: "Do your best! P.S. You can't delete answers, so..." %>
+		  <%= f.button :submit %>
+		<% end %>
+	</div>
+</div>
 
-<p>
-  <strong>Body:</strong>
-  <%= @question.body %>
-</p>
-
-<%= link_to 'Edit', edit_question_path(@question) %> |
-<%= link_to 'Back', questions_path %>
