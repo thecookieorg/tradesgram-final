@@ -9,6 +9,10 @@
 		<% @questions.each do |question| %>
 			<h3><%= link_to question.name, question %></h3>
 			<small>Question asked <%= time_ago_in_words(question.created_at) %> ago by <%= question.user.full_name %> </small>
+			<br><br>
+			<%= link_to question, class: "btn btn-success btn-xs" do %>
+				<i class="fa fa-heart" aria-hidden="true"></i> Answer
+			<% end %>
 			<hr>
 		<% end %>
 	</div><!-- end col-md-9 -->

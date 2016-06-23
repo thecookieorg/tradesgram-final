@@ -1,0 +1,41 @@
+html {
+  height: 100%;
+}
+
+.registration-bg {
+  padding-top: 4em;
+  padding-bottom: 14em;
+  height: 100%;
+  background-image: url('http://www.aemp.org/wp-content/uploads/2012/04/shutterstock_150120215.jpg');
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.log-in {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  border: none;
+}
+
+.panel {
+  border-radius: 8px;
+}
+
+.panel-heading h1 {
+  text-align: center;
+}
+
+
+.login-bg {
+  padding-top: 4em;
+  padding-bottom: 14em;
+  height: 100%;
+  background-image: url('http://www.entracomic.com/wp-content/uploads/2015/12/10-reasons-why-engineers-are-the-best-boyfriend-ever.jpg');
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
