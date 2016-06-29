@@ -4,6 +4,10 @@
 		<hr>
 	</div>
 	<div class="col-md-7">
+		<% if @questions.blank? %>
+		  <h4>There are no questions containing the term <%= params[:search] %>.</h4>
+		  <hr>
+		<% end %>
 		<h4>Top Questions For You</h4>
 		<hr>
 		<% @questions.each do |question| %>

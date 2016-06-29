@@ -6,4 +6,14 @@ class User < ActiveRecord::Base
 
   has_many :questions, dependent: :destroy
   has_many :answers, dependent: :destroy
+
+  acts_as_messageable
+
+  def mailboxer_full_name
+  	self.full_name
+  end
+
+  def mailboxer_email(object)
+  	self.email
+  end
 end

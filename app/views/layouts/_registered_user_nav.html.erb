@@ -13,12 +13,11 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
       </ul>
-      <form class="navbar-form navbar-left" role="search">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
-        </div>
-        <button type="submit" class="btn btn-default">Submit</button>
-      </form>
+      <%= form_tag(pages_index_path, :method => "get", id: "search-form", class: "navbar-form navbar-left", role: "search") do %>
+          <%= text_field_tag :search, params[:search], placeholder: "Search Tradesgram", class: "form-control" %>
+          <%= submit_tag "Search", :name => nil, class: "btn btn-default" %>
+      <% end %>
+
       <ul class="nav navbar-nav navbar-right">
       	<li>
         	<%= link_to new_question_path do %>
@@ -26,12 +25,11 @@
         	<% end %>
         </li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Hello, <%= current_user.full_name %> <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
             <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
             <li><%= link_to "My Questions", questions_path %></li>
-            <li><a href="#">Messages</a></li>
-            <li><a href="#">Something else here</a></li>
+            <li><%= link_to "Inbox", mailbox_inbox_path %></li>
             <li class="divider"></li>
             <li><a href="#">Separated link</a></li>
             <li class="divider"></li>
