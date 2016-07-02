@@ -1,0 +1,21 @@
+<div class="row">
+	<div class="col-md-12">
+		<h1><%= @work.name %></h1>
+		<%= image_tag @work.portfolio.large, class: "img-responsive" %>
+	</div>
+</div><!-- end row -->
+<hr>
+<div class="row">
+	<div class="col-md-4">
+		<h3><strong>Project Description:</strong></h3>
+		<h4><%= @work.description %></h4>
+	</div>
+	<div class="col-md-4">
+		<h3><strong>Project Start Date:</strong></h3> 
+		<h4><%= @work.start_date.strftime("%b %d, %Y") %></h4>
+	</div>
+	<div class="col-md-4">
+		<h3><strong>Project Start Date:</strong></h3> 
+		<h4><%= @work.end_date.strftime("%b %d, %Y") %></h4>
+	</div>
+</div>

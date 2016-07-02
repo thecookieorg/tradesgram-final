@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160702015757) do
+ActiveRecord::Schema.define(version: 20160702222632) do
 
   create_table "answers", force: :cascade do |t|
     t.text     "body"
@@ -77,6 +77,9 @@ ActiveRecord::Schema.define(version: 20160702015757) do
   add_index "mailboxer_receipts", ["notification_id"], name: "index_mailboxer_receipts_on_notification_id"
   add_index "mailboxer_receipts", ["receiver_id", "receiver_type"], name: "index_mailboxer_receipts_on_receiver_id_and_receiver_type"
 
+# Could not dump table "portfolios" because of following NoMethodError
+#   undefined method `[]' for nil:NilClass
+
   create_table "projects", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
@@ -120,9 +123,23 @@ ActiveRecord::Schema.define(version: 20160702015757) do
     t.string   "location"
     t.string   "education"
     t.string   "employment"
+    t.string   "avatar"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+
+  create_table "works", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "user_id"
+    t.string   "portfolio"
+  end
+
+  add_index "works", ["user_id"], name: "index_works_on_user_id"
 
 end

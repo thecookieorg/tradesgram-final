@@ -1,0 +1,22 @@
+<%= simple_form_for(@work) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :name %>
+    <%= f.input :description %>
+    <hr>
+    <small>Upload project image from local computer</small>
+    <%= f.file_field :portfolio %>
+    
+    <br>
+    <small>Or paste image URL below</small>
+    <%= f.input :remote_portfolio_url %>
+    <hr>
+    <%= f.input :start_date %>
+    <%= f.input :end_date %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

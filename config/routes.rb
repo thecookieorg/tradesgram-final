@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :works
   default_url_options :host => "tradesgram.com"
 
   resources :projects
@@ -11,6 +12,7 @@ Rails.application.routes.draw do
   #get 'users/:id' => 'users#show'
   resources :users, only: [:show]
 
+  get 'pages/search_result'
   get 'pages/index'
 
   authenticated :user do

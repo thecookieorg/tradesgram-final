@@ -4,9 +4,12 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  mount_uploader :avatar, AvatarUploader
+
   has_many :questions, dependent: :destroy
   has_many :answers, dependent: :destroy
   has_many :projects, dependent: :destroy
+  has_many :works, dependent: :destroy
 
   acts_as_messageable
 

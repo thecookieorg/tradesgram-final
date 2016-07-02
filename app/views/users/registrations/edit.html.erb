@@ -6,6 +6,14 @@
       <div class="panel-body">
         <div class="form-group">
           <%= f.input :full_name, required: true, autofocus: true %>
+          <hr>
+          <small>Upload avatar from local computer</small>
+          <%= f.file_field :avatar %>
+          
+          <br>
+          <small>Or paste image URL below</small>
+          <%= f.input :remote_avatar_url %>
+          <hr>
           <%= f.input :profile_bio, required: true %>
           <%= f.input :about_me, required: true %>
         </div><!-- end form-group -->

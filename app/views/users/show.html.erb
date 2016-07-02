@@ -1,1 +1,31 @@
-<%= @user.full_name %>
+<div class="row">
+	<div class="col-md-2">
+		<%= image_tag @user.avatar.large, class: "img-responsive img-circle", style: "border: 4px solid #2c3e50;" %>
+	</div>
+	<div class="col-md-7">
+		<h2><%= @user.full_name %></h2>
+		<hr>
+		<h4><em><%= @user.about_me %></em></h4>
+		<h5><strong>Education:</strong> <%= @user.education %></h5>
+		<h5><strong>Location:</strong> <%= @user.location %></h5>
+		<h5><strong>Employment:</strong> <%= @user.employment %></h5>
+		<hr>
+		<h5><strong>Questions Asked:</strong></h5>
+		<% @questions.each do |q| %>
+			<p><%= link_to q.name, q %></p>
+		<% end %>
+	</div>
+	<div class="col-md-3">
+		<h2>Portfolio</h2>
+		<hr>
+		<% @works.each do |w| %>
+			<h4>
+				<%= link_to w, class: "btn btn-info" do %>
+					<i class="fa fa-caret-square-o-right" aria-hidden="true"></i> <%= w.name %>
+				<% end %>
+			</h4>
+		<% end %>
+	</div>
+</div>
+
+

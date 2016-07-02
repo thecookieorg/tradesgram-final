@@ -13,7 +13,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
       </ul>
-      <%= form_tag(pages_index_path, :method => "get", id: "search-form", class: "navbar-form navbar-left", role: "search") do %>
+      <%= form_tag(pages_search_result_path, :method => "get", id: "search-form", class: "navbar-form navbar-left", role: "search") do %>
           <%= text_field_tag :search, params[:search], placeholder: "Search Tradesgram", class: "form-control" %>
           <%= submit_tag "Search", :name => nil, class: "btn btn-default" %>
       <% end %>
@@ -28,7 +28,7 @@
           <%= link_to mailbox_inbox_path do  %>
               <span class="label label-danger pull-right" style="margin-left:5px;"> <%=unread_messages_count%></span>
               <em class="fa fa-inbox fa-lg"></em>
-              <span>Inbox</span>
+              <span>Messages</span>
           <% end %>
         </li>
         <li class="dropdown">
@@ -39,6 +39,7 @@
             <!--<li><%# link_to "Inbox", mailbox_inbox_path %></li>-->
             <li class="divider"></li>
             <li><%= link_to "My Questions", questions_path %></li>
+            <li><%= link_to "My Work", works_path %></li>
             <li><a href="#">Knowledge Base</a></li>
             <li><%= link_to "Post a Project", new_project_path %></li>
             <li class="divider"></li>
