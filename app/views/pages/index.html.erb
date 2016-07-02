@@ -1,9 +1,18 @@
 <div class="row">
-	<div class="col-md-2">
-		<h4>Trending Now</h4>
+	<div class="col-md-5">
+		<h4>Trending Projects</h4>
 		<hr>
+		<% @projects.each do |project| %>
+			<h3><%= link_to project.name, project %></h3>
+			<small>Project posted <%= time_ago_in_words(project.created_at) %> ago by <%= project.user.full_name %></small>
+			<br><br>
+			<%= link_to project, class: "btn btn-warning btn-xs" do %>
+				<i class="fa fa-building-o" aria-hidden="true"></i> Details
+			<% end %>
+			<hr>
+		<% end %>
 	</div>
-	<div class="col-md-7">
+	<div class="col-md-5">
 		<% if @questions.blank? %>
 		  <h4>There are no questions containing the term <%= params[:search] %>.</h4>
 		  <hr>
@@ -20,7 +29,7 @@
 			<hr>
 		<% end %>
 	</div><!-- end col-md-9 -->
-	<div class="col-md-3">
+	<div class="col-md-2">
 			<% if current_user.full_name.present? %>
 				<h4>Your Profile Status</h4>
 				<hr>

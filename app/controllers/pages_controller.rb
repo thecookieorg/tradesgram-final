@@ -1,6 +1,7 @@
 class PagesController < ApplicationController
   def index
   	@questions = Question.all.order(created_at: :desc)
+    @projects = Project.all.order(created_at: :desc)
   	if params[:search]
       @questions = Question.search(params[:search]).order("created_at DESC")
     else

@@ -2,6 +2,7 @@ class ConversationsController < ApplicationController
 	before_action :authenticate_user!
 
 	def new
+		@recipients = User.all - [current_user]
 	end
 
 	def create

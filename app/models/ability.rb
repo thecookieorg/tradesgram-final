@@ -11,6 +11,8 @@ class Ability
       can :read, :all
       can [:read, :create], Question
       can [:update, :destroy], Question, :user_id => user.id
+      can [:read, :create], Project
+      can [:update, :destroy], Project, :user_id => user.id
     end
     #
     # The first argument to `can` is the action you are giving the user
