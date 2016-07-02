@@ -5,6 +5,6 @@ class Question < ActiveRecord::Base
 	validates_presence_of :name, :body
 
 	def self.search(search)
-		where("name LIKE ? OR body LIKE ? ", "%#{search}%", "%#{search}%")
+		where("name ILIKE ? OR body ILIKE ? ", "%#{search}%", "%#{search}%")
 	end
 end
