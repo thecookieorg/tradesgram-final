@@ -1,4 +1,6 @@
-class PortfolioUploader < CarrierWave::Uploader::Base
+# encoding: utf-8
+class CkeditorPictureUploader < CarrierWave::Uploader::Base
+  include Ckeditor::Backend::CarrierWave
 
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
@@ -45,13 +47,6 @@ class PortfolioUploader < CarrierWave::Uploader::Base
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
   def extension_white_list
-    %w(jpg jpeg gif png)
+    Ckeditor.image_file_types
   end
-
-  # Override the filename of the uploaded files:
-  # Avoid using model.id or version_name here, see uploader/store.rb for details.
-  # def filename
-  #   "something.jpg" if original_filename
-  # end
-
 end
