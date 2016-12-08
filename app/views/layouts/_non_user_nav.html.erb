@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-default" style="background-color: white;">
   <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
@@ -7,15 +7,17 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <%= link_to "Tradesgram", root_path, class: "navbar-brand" %>
+      <%= link_to root_path, class: "navbar-brand", style: "margin-top: -10px;" do %>
+        <%= image_tag "http://res.cloudinary.com/handyguyz/image/upload/c_scale,w_200/v1481182061/logo-rex_wuqp4o.png", class: "img-responsive" %>
+      <% end %>
     </div>
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
       <ul class="nav navbar-nav">
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to('Login', new_user_session_path) %></li>
-    	<li><%= link_to('Register', new_user_registration_path) %></li>
+        <li><%= link_to('Login', new_user_session_path, style: "color: #2c3e50;") %></li>
+    	<li><%= link_to('Register', new_user_registration_path, style: "color: #2c3e50;") %></li>
       </ul>
     </div>
   </div>
